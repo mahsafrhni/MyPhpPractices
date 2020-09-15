@@ -2,22 +2,23 @@
 $n = readline();
 $m = readline();
 $names = [];
-$prices = [];
+$prices1 = [];
+$prices2 = [];
 for ($i = 0; $i < $n; $i++) {
     $names[$i] = readline();
 }
 for ($i = 0; $i < $n; $i++) {
-    $prices[$i] = readline();
+    $prices1[$i] = readline();
 }
-sort($prices);
-//$a = [$names => $prices];
-$price = array();
-//foreach ($inventory as $key => $row)
-//{
-//    $price[$key] = $row['price'];
-//}
+$prices2 = $prices1;
+sort($prices1);
 for ($i = 0; $i < $m; $i++) {
-    echo $names[$i];
+    for ($j = 0; $j < $n; $j++) {
+        if ($prices1[$i] == $prices2[$j]) {
+            echo $names[$j];
+            break;
+        }
+    }
     echo ":";
-    echo "$prices[$i]\n";
+    echo "$prices1[$i]\n";
 }
